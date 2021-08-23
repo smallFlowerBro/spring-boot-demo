@@ -1,0 +1,22 @@
+server:
+  port: 8080
+# 应用名称
+spring:
+  application:
+    name: freemarker
+  freemarker:
+    #模板路径和模板后缀
+    cache: true
+    check-template-location: true
+    charset: UTF-8
+    content-type: text/html
+    expose-request-attributes: false
+    expose-session-attributes: false
+    expose-spring-macro-helpers: false
+    #自定义模板类型路径
+    template:
+      json: /com/wei/freemarker/template/json/
+      xml:  /com/wei/freemarker/template/xml/
+
+
+
