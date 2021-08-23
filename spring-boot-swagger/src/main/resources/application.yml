@@ -1,0 +1,10 @@
+#应用名称
+spring:
+  application:
+    name: spring-boot-swagger
+  swagger:
+    packages: com.wei.swagger.controller
+server:
+  port: 8080
+  servlet:
+    context-path: /demo
