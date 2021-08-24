@@ -1,0 +1,12 @@
+# 应用服务 WEB 访问端口
+server:
+  port: 8080
+# 应用名称
+spring:
+  application:
+    name: spring-boot-schedule
+task:
+  task3: "*/5 * * * * ?"
+
+
+
