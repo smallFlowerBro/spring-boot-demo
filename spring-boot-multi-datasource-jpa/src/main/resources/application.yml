@@ -1,0 +1,40 @@
+# 应用名称
+spring:
+  application:
+    name: spring-boot-nulti-datasource-jpa
+  datasource:
+    #主数据源配置
+    primary:
+      url: jdbc:mysql://127.0.0.1:3306/multi_db_one?serverTimezone=GMT
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: 123456
+    #第二数据源配置
+    second:
+      url: jdbc:mysql://127.0.0.1:3306/multi_db_two?serverTimezone=GMT
+      driver-class-name: com.mysql.jdbc.Driver
+      username: root
+      password: 123456
+  jpa:
+    primary:
+      database: mysql
+      show-sql: false
+      generate-ddl: true
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+      open-in-view: true
+    second:
+      database: mysql
+      show-sql: false
+      generate-ddl: true
+      hibernate:
+        ddl-auto: update
+      properties:
+        hibernate:
+          dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+      open-in-view: true
+
+
