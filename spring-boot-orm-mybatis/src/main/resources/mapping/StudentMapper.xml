@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wei.mybatis.mapper.StudentMapper">
+    <resultMap id="BaseResultMap" type="com.wei.mybatis.entity.StudentEntity">
+        <result column="id" javaType="String" property="id"></result>
+        <result column="name" javaType="String" property="name"></result>
+        <result column="age" javaType="INTEGER" property="age"></result>
+        <result column="sex" javaType="INTEGER" property="sex"></result>
+        <result column="birthday" javaType="String" property="birthday"></result>
+    </resultMap>
+    <select id="findAll" resultType="com.wei.mybatis.entity.StudentEntity">
+        select * from student;
+    </select>
+
+</mapper>
