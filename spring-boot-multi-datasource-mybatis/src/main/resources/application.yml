@@ -1,0 +1,23 @@
+# 应用名称
+spring:
+  application:
+    name: spring-boot-multi-datasource-mybatis
+  datasource:
+    primary:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/multi_db_one?serverTimezone=GMT
+      username: root
+      password: 123456
+    second:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/multi_db_two?serverTimezone=GMT
+      username: root
+      password: 123456
+
+mybatis:
+  primary:
+    mapper-locations: classpath:mapper-primary/*Mapper.xml
+    type-handlers-package: "com.wei.multidatatsource.primary.entity"
+  second:
+    mapper-locations: classpath:mapper-second/*Mapper.xml
+    type-handlers-package:  "com.wei.multidatasource.second.entity"
