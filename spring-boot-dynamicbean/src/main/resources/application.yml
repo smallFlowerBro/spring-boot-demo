@@ -1,0 +1,4 @@
+#动态的获取spring bean
+spring:
+  application:
+    name: spring-boot-boot
