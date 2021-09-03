@@ -1,0 +1,10 @@
+# 应用名称
+spring:
+  application:
+    name: netty
+server:
+  port: 8089
+  netty:
+    host:  127.0.0.1
+    port:  8090
+
