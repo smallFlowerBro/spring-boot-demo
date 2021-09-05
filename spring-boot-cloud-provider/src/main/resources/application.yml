@@ -1,0 +1,9 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: spring-boot-cloud-provider
+eureka:
+  client:
+    service-url:
+      defaultZone: http://weiyongjian:123456@127.0.0.1:8080/eureka
