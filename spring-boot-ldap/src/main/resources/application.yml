@@ -1,0 +1,11 @@
+server:
+  port: 8080
+# 应用名称
+spring:
+  application:
+    name: ldap
+  ldap:
+    embedded:
+      ldif: 'classpath:test-server.ldif'
+      base-dn: dc=springframework,dc=org
+      port: 8389
