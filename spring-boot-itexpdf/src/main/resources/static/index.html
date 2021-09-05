@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.css">
+    <script src="js/socket.io/socket.io.js"></script>
+    <script src="js/jquery-1.10.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--TINY 富文本编辑器-->
+    <script  src="js/tinymce/tinymce.min.js"></script>
+    <!--自定义样式-->
+    <link href="css/my.css" rel="stylesheet">
+    <!--自定义js-->
+    <script src="message/message.js"></script>
+    <script src="lib/requireJs.js" data-main="pages/main"></script>
+</head>
+<script>
+
+    function sendMsg() {
+        $.ajax({
+            url:"/pdf/htmlToPDF",
+            type:"Post",
+            data:{
+                htmlMsg:"<html>"+tinyMCE.activeEditor.getContent()+"</html>>"
+            },
+            async:true,
+            success:function(result){
+            alert("PDF生成成功")
+        }
+    })
+
+    }
+    $().ready(function () {
+        // $('#summernote').summernote({
+        //     height: 200,
+        //     tabsize: 2,
+        //     lang: 'zh-CN'});
+        var useDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        tinymce.init({
+            selector: '#mytextarea',
+           // language:'zh_CN',//注意大小写
+            plugins: 'print preview powerpaste casechange importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker imagetools textpattern noneditable help formatpainter permanentpen pageembed charmap tinycomments mentions quickbars linkchecker emoticons advtable',
+            tinydrive_token_provider: 'URL_TO_YOUR_TOKEN_PROVIDER',
+            tinydrive_dropbox_app_key: 'YOUR_DROPBOX_APP_KEY',
+            tinydrive_google_drive_key: 'YOUR_GOOGLE_DRIVE_KEY',
+            tinydrive_google_drive_client_id: 'YOUR_GOOGLE_DRIVE_CLIENT_ID',
+            mobile: {
+                plugins: 'print preview powerpaste casechange importcss tinydrive searchreplace autolink autosave save directionality advcode visualblocks visualchars fullscreen image link media mediaembed template codesample table charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists checklist wordcount tinymcespellchecker a11ychecker textpattern noneditable help formatpainter pageembed charmap mentions quickbars linkchecker emoticons advtable'
+            },
+            menu: {
+                tc: {
+                    title: 'TinyComments',
+                    items: 'addcomment showcomments deleteallconversations'
+                }
+            },
+            menubar: 'file edit view insert format tools table tc help',
+            toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist checklist | forecolor backcolor casechange permanentpen formatpainter removeformat | pagebreak | charmap emoticons | fullscreen  preview save print | insertfile image media pageembed template link anchor codesample | a11ycheck ltr rtl | showcomments addcomment',
+            autosave_ask_before_unload: true,
+            autosave_interval: '30s',
+            autosave_prefix: '{path}{query}-{id}-',
+            autosave_restore_when_empty: false,
+            autosave_retention: '2m',
+            image_advtab: true,
+            link_list: [
+                { title: 'My page 1', value: 'https://www.tiny.cloud' },
+                { title: 'My page 2', value: 'http://www.moxiecode.com' }
+            ],
+            image_list: [
+                { title: 'My page 1', value: 'https://www.tiny.cloud' },
+                { title: 'My page 2', value: 'http://www.moxiecode.com' }
+            ],
+            image_class_list: [
+                { title: 'None', value: '' },
+                { title: 'Some class', value: 'class-name' }
+            ],
+            importcss_append: true,
+            templates: [
+                { title: 'New Table', description: 'creates a new table', content: '<div class="mceTmpl"><table width="98%%"  border="0" cellspacing="0" cellpadding="0"><tr><th scope="col"> </th><th scope="col"> </th></tr><tr><td> </td><td> </td></tr></table></div>' },
+                { title: 'Starting my story', description: 'A cure for writers block', content: 'Once upon a time...' },
+                { title: 'New list with dates', description: 'New List with dates', content: '<div class="mceTmpl"><span class="cdate">cdate</span><br /><span class="mdate">mdate</span><h2>My List</h2><ul><li></li><li></li></ul></div>' }
+            ],
+            template_cdate_format: '[Date Created (CDATE): %m/%d/%Y : %H:%M:%S]',
+            template_mdate_format: '[Date Modified (MDATE): %m/%d/%Y : %H:%M:%S]',
+            height: 600,
+            image_caption: true,
+            quickbars_selection_toolbar: 'bold italic | quicklink h2 h3 blockquote quickimage quicktable',
+            noneditable_noneditable_class: 'mceNonEditable',
+            toolbar_mode: 'sliding',
+            spellchecker_ignore_list: ['Ephox', 'Moxiecode'],
+            tinycomments_mode: 'embedded',
+            content_style: '.mymention{ color: gray; }',
+            contextmenu: 'link image imagetools table configurepermanentpen',
+            a11y_advanced_options: true,
+            skin: useDarkMode ? 'oxide-dark' : 'oxide',
+            content_css: useDarkMode ? 'dark' : 'default',
+            /*
+            The following settings require more configuration than shown here.
+            For information on configuring the mentions plugin, see:
+            https://www.tiny.cloud/docs/plugins/premium/mentions/.
+            */
+            mentions_selector: '.mymention',
+           // mentions_fetch: mentions_fetch,
+           // mentions_menu_hover: mentions_menu_hover,
+           //  mentions_menu_complete: mentions_menu_complete,
+           //  mentions_select: mentions_select,
+            mentions_item_type: 'profile'
+        });
+    })
+
+</script>
+<body>
+<div class="container col-lg-12">
+    <div class="row  clearfix">
+        <div class="col-lg-12 column">
+            <nav class="navbar navbar-default" role="navigation">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="#">Brand</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Link</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <form class="navbar-form navbar-left" role="search">
+                        <div class="form-group">
+                            <input type="text" class="form-control" />
+                        </div> <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#">Link</a>
+                        </li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown<strong class="caret"></strong></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+
+            </nav>
+        </div>
+    </div>
+    <div class="row clearfix">
+        <div class="col-lg-1 column">
+            <div class="list-group">
+                <a href="#" class="list-group-item active" onclick="join(this)" data-channel="1">在线编辑</a>
+                <a href="#" class="list-group-item " onclick="join(this)" data-channel="2">本地上传</a>
+            </div>
+        </div>
+        <div class="col-lg-11 column">
+<!--            <div class="col-lg-12">-->
+<!--                <div id="console" class="well"></div>-->
+<!--                <div id="summernote">Hello Summernote</div>-->
+<!--                <input type="button" class="btn btn-info" onclick="sendMsg()" value="发送"/>-->
+<!--            </div>-->
+            <h1>PDF 文件在线编辑器</h1>
+            <form  method="post">
+                <textarea id="mytextarea">Hello, World!</textarea>
+                <input type="button" onclick="sendMsg()" class="btn btn-info" value="发送"/>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
