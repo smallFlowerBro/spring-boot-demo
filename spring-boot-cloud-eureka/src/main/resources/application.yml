@@ -13,7 +13,7 @@ eureka:
   server:
     enable-self-preservation: true
   client:
-    register-with-eureka: false
-    fetch-registry: true
+    register-with-eureka: false  #不向注册中心注册
+    fetch-registry: false  # 不需要检索服务
     service-url:
       defaultZone: http://weiyongjian:123456@127.0.0.1:8080/eureka
