@@ -1,0 +1,26 @@
+Configuration:
+  Status: WARM
+  Properties:
+    Property:
+      - name: log.path
+      - value: "${log.dir}"
+  Appenders:
+    Console:
+      name: console
+      target: SYSTEM_OUT
+      patternlayout:
+        pattern: '%-5p %d  [%t]:%m%n'
+    File:
+      name: MyFile
+      fileName: "logs/${log.path}/${date:yyyy-MM}/${date:yyyy-MM-dd}.log"
+      append: true
+      patternlayout:
+        pattern: '%-5p %d  [%t]:%m%n'
+  Loggers:
+    Root:
+      Level:  error
+      AppenderRef:
+      - Ref: console
+      - Ref: MyFile
+
+
