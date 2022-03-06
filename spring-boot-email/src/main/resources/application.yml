@@ -1,0 +1,12 @@
+
+# 应用名称
+spring:
+  application:
+    name: email
+  mail:
+    host: smtp.163.com
+    username: jushouqingtian@163.com
+    password: RPZMCPVJPURTPMUI
+    protocol: smtp
+server:
+  port: 8805
