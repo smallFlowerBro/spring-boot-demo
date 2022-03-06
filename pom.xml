@@ -4,7 +4,15 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wei</groupId>
     <artifactId>spring-boot</artifactId>
+    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>spring-boot-sso-idb</module>
+        <module>spring-boot-sso-serverone</module>
+        <module>spring-boot-sso-serverone</module>
+        <module>ssoservertwo</module>
+        <module>spring-boot-sso-server-one</module>
+    </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
 
