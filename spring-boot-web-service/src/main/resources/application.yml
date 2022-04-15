@@ -1,0 +1,4 @@
+# webservice 服务
+spring:
+  application:
+    name: spring-boot-web-service
