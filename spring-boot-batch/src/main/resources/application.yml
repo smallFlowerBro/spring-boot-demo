@@ -1,0 +1,17 @@
+# 应用名称
+spring:
+  application:
+    name: spring-boot-batch
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/spring_boot_batch?serverTimezone=GMT
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    # 执行schema-all.sql
+    initialization-mode: always
+  batch:
+    # 初始化需要的表
+    initialize-schema: always
+    job:
+      #是否项目启动时启动任务
+      enabled: false
