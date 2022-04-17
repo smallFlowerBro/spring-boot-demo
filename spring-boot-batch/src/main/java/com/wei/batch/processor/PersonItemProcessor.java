@@ -13,6 +13,13 @@ import org.springframework.batch.item.ItemProcessor;
 @Slf4j
 public class PersonItemProcessor implements ItemProcessor<Person,Person> {
 
+    /*******************************
+     *  @Author WEIYJ 
+     *  @Description //TODO 
+     *  @Date 2022/4/16 20:37
+      * @Param: null
+        @Return     
+     ********************************/
     @Override
     public Person process(Person person) throws Exception {
         final String firstName = person.getFirstName().toUpperCase();
