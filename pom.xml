@@ -16,6 +16,8 @@
     <modules>
         <!--Aop 切面学习-->
         <module>spring-boot-aop</module>
+        <!--异步-->
+        <module>spring-boot-async</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>

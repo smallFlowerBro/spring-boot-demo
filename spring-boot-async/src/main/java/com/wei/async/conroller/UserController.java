@@ -15,7 +15,7 @@ import java.util.concurrent.Future;
  * @Date
  */
 @RestController
-@RequestMapping(value = "/user")
+@RequestMapping(value = "/api/async")
 public class UserController {
 
     @Autowired
@@ -26,6 +26,7 @@ public class UserController {
 
         userService.method1();
         Future<String> stringFuture = userService.method2();
+        System.out.println(stringFuture.get());
         return  stringFuture.get();
     }
 
