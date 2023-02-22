@@ -4,34 +4,28 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wei</groupId>
     <artifactId>spring-boot</artifactId>
-    <packaging>pom</packaging>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>3.0.2</version>
+        <relativePath/>
+        <!-- lookup parent from repository -->
+    </parent>
     <modules>
-        <module>spring-boot-sso-idb</module>
-        <module>spring-boot-sso-serverone</module>
-        <module>spring-boot-sso-serverone</module>
-        <module>ssoservertwo</module>
-        <module>spring-boot-sso-server-one</module>
+        <!--Aop 切面学习-->
+        <module>spring-boot-aop</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
-
     <properties>
-        <java.version>1.8</java.version>
+        <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -48,13 +42,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
 
