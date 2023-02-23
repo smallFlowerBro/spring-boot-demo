@@ -1,0 +1,9 @@
+# 应用名称
+spring:
+  application:
+    name: sping-boot-core
+  banner:
+    location: banner/banner.txt
+  profiles:
+    active: dev
+
