@@ -1,4 +1,4 @@
-package com.wei.springbootaop.aspect;
+package com.wei.demo.aspect;
 
 import jakarta.servlet.http.HttpServletRequest;
 import org.aspectj.lang.JoinPoint;
@@ -19,7 +19,7 @@ import org.springframework.web.context.request.ServletRequestAttributes;
 @Component
 public class ControllerAspect {
 
-    @Pointcut("execution(public * com.wei.springbootaop.controller.*.*(..))")
+    @Pointcut("execution(public * com.wei.demo.controller.*.*(..))")
     public void pointCut(){}
 
 

@@ -18,6 +18,8 @@
         <module>spring-boot-aop</module>
         <!--异步-->
         <module>spring-boot-async</module>
+        <!--batch-->
+        <module>spring-boot-batch</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
@@ -28,6 +30,10 @@
     </properties>
 
     <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

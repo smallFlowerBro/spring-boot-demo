@@ -43,7 +43,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.wei.springbootaop.SpringBootAopApplication</mainClass>
+                    <mainClass>com.wei.demo.SpringBootAopApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

@@ -1,13 +1,13 @@
-package com.wei.async;
+package com.wei.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringBootAsyncApplication {
+public class SpringBootAopApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootAsyncApplication.class, args);
+        SpringApplication.run(SpringBootAopApplication.class, args);
     }
 
 }

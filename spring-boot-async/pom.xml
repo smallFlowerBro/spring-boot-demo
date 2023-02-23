@@ -41,7 +41,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>com.wei.async.SpringBootAsyncApplication</mainClass>
+                    <mainClass>com.wei.demo.SpringBootAsyncApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>

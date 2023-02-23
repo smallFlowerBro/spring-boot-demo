@@ -1,4 +1,4 @@
-package com.wei.async.service;
+package com.wei.demo.service;
 
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.AsyncResult;

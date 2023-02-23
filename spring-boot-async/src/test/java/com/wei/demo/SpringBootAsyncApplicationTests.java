@@ -1,10 +1,10 @@
-package com.wei.springbootaop;
+package com.wei.demo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootAopApplicationTests {
+class SpringBootAsyncApplicationTests {
 
     @Test
     void contextLoads() {
