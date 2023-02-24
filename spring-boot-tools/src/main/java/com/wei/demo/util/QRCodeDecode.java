@@ -1,14 +1,14 @@
-package com.wei.qrcode;
+package com.wei.demo.util;
 
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;
 import com.google.zxing.common.HybridBinarizer;
-import sun.misc.BASE64Decoder;
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.IOException;
+import java.util.Base64;
 import java.util.HashMap;
 
 /**
@@ -24,9 +24,9 @@ public class QRCodeDecode {
      * @return
      */
     public static String decodeFromBase64(String base64){
-        BASE64Decoder base64Decoder = new BASE64Decoder();
+        Base64.Decoder decoder = Base64.getDecoder();
         try {
-            byte[] bytes = base64Decoder.decodeBuffer(base64);
+            byte[] bytes = decoder.decode(base64);
             BufferedImage bufferImg = ImageIO.read(new ByteArrayInputStream(bytes));
             BufferedImageLuminanceSource bufferedImageLuminanceSource = new BufferedImageLuminanceSource(bufferImg);
             HybridBinarizer hybridBinarizer = new HybridBinarizer(bufferedImageLuminanceSource);
@@ -66,10 +66,8 @@ public class QRCodeDecode {
     }
 
     public static void main(String[] args) {
-//        String s = QRCodeDecode.decodeFromBase64("iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQAAAAA2RLUcAAAAcklEQVR42mP4DwYHGOhG/2EPkAfR\n" +
-//                "f7+G3wfToibxYFr8CoQWEYHQX8rB8n9YIer//4Xq3yxoD5ZfbzsfRP8rXg3hr4oHq/vTqBkPUb8e\n" +
-//                "op61aT9Y/vtKsPq/Yqcg6kU/QewXmw2hvzBD9LPcsKdneKDSADZlL11UCGgoAAAAAElFTkSuQmCC");
-        String s = QRCodeDecode.decodeFromFile("HL.png");
-        System.out.println(s);
+        String base64str ="iVBORw0KGgoAAAANSUhEUgAAADIAAAAyAQAAAAA2RLUcAAAAc0lEQVR4XmP4DwYHGOhG/2EPkAfRf7+G3wfToibxYFr8CoQWEYHQX8rB8n9YIer//4Xq3yxoD5ZfbzsfRP8rXg3hr4oHq/vTqAnWD1QAUc/atB8s/30lWP1fsVMQ9aKfIPaLzYbQX5gh+llugOXR3U0fGgA2ZS9dq2PyJwAAAABJRU5ErkJggg==";
+        System.out.println(QRCodeDecode.decodeFromBase64(base64str));
+        System.out.println(QRCodeDecode.decodeFromFile("hl.png"));
     }
 }

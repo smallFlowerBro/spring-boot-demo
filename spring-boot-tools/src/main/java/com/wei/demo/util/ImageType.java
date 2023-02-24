@@ -1,4 +1,4 @@
-package com.wei.qrcode;
+package com.wei.demo.util;
 
 public enum ImageType {
     PNG("PNG"),

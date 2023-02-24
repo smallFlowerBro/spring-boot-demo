@@ -1,15 +1,15 @@
-package com.wei.qrcode;
+package com.wei.demo.util;
 
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
-import sun.misc.BASE64Encoder;
 import java.io.*;
+import java.util.Base64;
 import java.util.HashMap;
 
 /**
  * @Author weiyongjian
- * @Description //TODO
+ * @Description
  * @Date
  */
 public class QRCodeEncode {
@@ -22,7 +22,7 @@ public class QRCodeEncode {
      */
     public static String encodeToBase64(String content, BarcodeFormat barcodeFormat,int width,int height,String image_type){
         try {
-            BASE64Encoder base64Encoder = new BASE64Encoder();
+            Base64.Encoder encoder = Base64.getEncoder();
             MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
             HashMap<EncodeHintType, Object> encodeHintTypeObjectHashMap = new HashMap<>();
             encodeHintTypeObjectHashMap.put(EncodeHintType.CHARACTER_SET, "UTF-8");
@@ -30,7 +30,7 @@ public class QRCodeEncode {
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             MatrixToImageWriter.writeToStream(bitMatrix,image_type,byteArrayOutputStream);
             byte[] bytes = byteArrayOutputStream.toByteArray();
-            return  base64Encoder.encode(bytes);
+            return  encoder.encodeToString(bytes);
         } catch (WriterException | IOException e) {
             e.printStackTrace();
             return "";
@@ -55,7 +55,6 @@ public class QRCodeEncode {
      */
     public static void encodeToImage(String content,BarcodeFormat barcodeFormat,int width,int height,String fileName,String image_type){
         try {
-            BASE64Encoder base64Encoder = new BASE64Encoder();
             MultiFormatWriter multiFormatWriter = new MultiFormatWriter();
             HashMap<EncodeHintType, Object> encodeHintTypeObjectHashMap = new HashMap<>();
             encodeHintTypeObjectHashMap.put(EncodeHintType.CHARACTER_SET, "UTF-8");
@@ -78,7 +77,7 @@ public class QRCodeEncode {
     }
 
     public static void main(String[] args) {
-//        System.out.println(QRCodeEncode.encodeToBase64("HelloWorld",BarcodeFormat.QR_CODE,50,50));
-//        QRCodeEncode.encodeToImage("HELLOWORLD",BarcodeFormat.CODE_39,50,50,"HL.png");
+        System.out.println(QRCodeEncode.encodeToBase64("HelloWorld",BarcodeFormat.QR_CODE,50,50));
+        QRCodeEncode.encodeToImage("HELLOWORLD",BarcodeFormat.CODE_39,50,50,"HL.png");
     }
 }
