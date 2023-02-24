@@ -28,6 +28,8 @@
         <module>spring-boot-filter</module>
         <!--demo-->
         <module>spring-boot-interceptor</module>
+        <!--freemarker模板引擎-->
+        <module>spring-boot-freemarker</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
@@ -35,6 +37,7 @@
         <java.version>17</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <freemarker.version>2.3.32</freemarker.version>
     </properties>
 
     <dependencies>
