@@ -36,6 +36,8 @@
         <module>spring-boot-document-knife4j</module>
         <!--工具 itexpdf 处理pdf-->
         <module>spring-boot-tool-itexpdf</module>
+        <!--工具  socketio-->
+        <module>spring-boot-tool-socketio</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
@@ -45,6 +47,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <freemarker.version>2.3.32</freemarker.version>
         <swagger.version>2.9.2</swagger.version>
+        <socketio.version>1.7.17</socketio.version>
     </properties>
 
     <dependencies>

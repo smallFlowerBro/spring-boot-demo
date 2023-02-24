@@ -1,16 +1,14 @@
 server:
   port: 8080
-
-# ”¶”√√˚≥∆
 spring:
   application:
     name: socketio
-  redis:
-    database: 0
-    port: 6379
-    host: 127.0.0.1
-    #password:
-#websocket ≈‰÷√
+  data:
+    redis:
+      database: 0
+      host: 127.0.0.1
+      port: 6379
+     # password:
 ws:
   server:
     ip: 127.0.0.1
