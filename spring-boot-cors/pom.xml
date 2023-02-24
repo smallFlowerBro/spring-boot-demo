@@ -3,52 +3,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wei</groupId>
-    <artifactId>spring-boot</artifactId>
+    <artifactId>spring-boot-cors</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.2</version>
-        <relativePath/>
-        <!-- lookup parent from repository -->
-    </parent>
-    <modules>
-        <!--Aop 切面学习-->
-        <module>spring-boot-aop</module>
-        <!--异步-->
-        <module>spring-boot-async</module>
-        <!--batch-->
-        <module>spring-boot-batch</module>
-        <!--核心模块-->
-        <module>spring-boot-core</module>
-        <!--跨域处理-->
-        <module>spring-boot-cors</module>
-    </modules>
-    <name>spring-boot</name>
+    <name>spring-boot-cors</name>
     <description>Demo project for Spring Boot</description>
-    <properties>
-        <java.version>17</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    </properties>
-
+    <parent>
+        <artifactId>spring-boot</artifactId>
+        <groupId>com.wei</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-        </dependency>
-
-        <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
     </dependencies>
 
@@ -74,7 +41,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.wei.springboot.Application</mainClass>
+                    <mainClass>com.wei.demo.CorsApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
