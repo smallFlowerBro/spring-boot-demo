@@ -24,6 +24,8 @@
         <module>spring-boot-core</module>
         <!--跨域处理-->
         <module>spring-boot-cors</module>
+        <!--filter-->
+        <module>spring-boot-filter</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
