@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @Date
  */
 @RestController
-@RequestMapping(value = "/api")
+@RequestMapping(value = "/api/cors")
 @CrossOrigin
 public class CORSController {
 
