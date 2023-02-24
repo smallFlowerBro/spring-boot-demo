@@ -30,8 +30,10 @@
         <module>spring-boot-interceptor</module>
         <!--freemarker模板引擎-->
         <module>spring-boot-freemarker</module>
-        <!--接口文档-->
+        <!--接口文档 swagger-->
         <module>spring-boot-document-swagger</module>
+        <!--接口文档 knife4j -->
+        <module>spring-boot-document-knife4j</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
