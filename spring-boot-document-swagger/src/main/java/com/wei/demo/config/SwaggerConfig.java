@@ -1,4 +1,4 @@
-package com.wei.swagger.config;
+package com.wei.demo.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -37,7 +37,7 @@ public class SwaggerConfig {
 
     private ApiInfo getApiInfo(){
         return new ApiInfoBuilder()
-                .title("swagger demo")
+                .title("demo demo")
                 .description("更多详情")
                 .version("1.0")
                 .build();

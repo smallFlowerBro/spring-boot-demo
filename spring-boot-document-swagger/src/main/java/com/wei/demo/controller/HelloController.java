@@ -1,4 +1,4 @@
-package com.wei.swagger.controller;
+package com.wei.demo.controller;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-@RequestMapping("/hello")
+@RequestMapping("/api/swagger")
 @Api(description = "测试管理")
 public class HelloController {
 
-    @GetMapping("world")
+    @GetMapping("hello")
     @ApiOperation(value = "测试接口一" ,notes = "这是一个测试接口")
     @ApiImplicitParams({
             @ApiImplicitParam(name = "name", value = "姓名",defaultValue = "小花" )

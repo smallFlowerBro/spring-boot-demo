@@ -30,6 +30,8 @@
         <module>spring-boot-interceptor</module>
         <!--freemarker模板引擎-->
         <module>spring-boot-freemarker</module>
+        <!--接口文档-->
+        <module>spring-boot-document-swagger</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
@@ -38,6 +40,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <freemarker.version>2.3.32</freemarker.version>
+        <swagger.version>2.9.2</swagger.version>
     </properties>
 
     <dependencies>
