@@ -1,4 +1,4 @@
-package com.wei.interceptor.interceptor;
+package com.wei.demo.interceptor;
 
 
 import org.springframework.context.annotation.Configuration;
@@ -18,9 +18,7 @@ public class YourInterceptor implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(new UserInterceptor());
-        registry.addInterceptor(new MyInterceptor())
-                .addPathPatterns("/**")
-                .excludePathPatterns("/login","/","/user/login");
+        registry.addInterceptor(new UserInterceptor())
+                .excludePathPatterns("/user/login");
     }
 }

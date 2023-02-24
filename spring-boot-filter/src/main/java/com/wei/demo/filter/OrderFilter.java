@@ -1,4 +1,4 @@
-package com.wei.filter.filter;
+package com.wei.demo.filter;
 
 import jakarta.servlet.*;
 import jakarta.servlet.annotation.WebFilter;
