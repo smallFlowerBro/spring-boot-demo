@@ -3,59 +3,27 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wei</groupId>
-    <artifactId>spring-boot</artifactId>
+    <artifactId>spring-boot-cloud-zuul</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.2</version>
-        <relativePath/>
-        <!-- lookup parent from repository -->
-    </parent>
-    <modules>
-        <!--Aop 切面学习-->
-        <module>spring-boot-aop</module>
-        <!--异步-->
-        <module>spring-boot-async</module>
-        <!--batch-->
-        <module>spring-boot-batch</module>
-        <!--核心模块-->
-        <module>spring-boot-core</module>
-        <!--跨域处理-->
-        <module>spring-boot-cors</module>
-        <!--demo-->
-        <module>spring-boot-filter</module>
-        <!--demo-->
-        <module>spring-boot-interceptor</module>
-        <!--freemarker模板引擎-->
-        <module>spring-boot-freemarker</module>
-        <!--接口文档 swagger-->
-        <module>spring-boot-document-swagger</module>
-        <!--接口文档 knife4j -->
-        <module>spring-boot-document-knife4j</module>
-        <!--工具 itexpdf 处理pdf-->
-        <module>spring-boot-tool-itexpdf</module>
-        <!--工具  socketio-->
-        <module>spring-boot-tool-socketio</module>
-        <!--动态bean-->
-        <module>spring-boot-dynamic-bean</module>
-    </modules>
-    <name>spring-boot</name>
+    <name>spring-boot-cloud-zuul</name>
     <description>Demo project for Spring Boot</description>
+
     <properties>
-        <java.version>17</java.version>
+        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <freemarker.version>2.3.32</freemarker.version>
-        <swagger.version>2.9.2</swagger.version>
-        <socketio.version>1.7.17</socketio.version>
+        <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
+        <spring-cloud.version>Hoxton.SR9</spring-cloud.version>
     </properties>
 
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
         </dependency>
 
         <dependency>
@@ -73,6 +41,20 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -93,7 +75,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.wei.springboot.Application</mainClass>
+                    <mainClass>com.wei.zuul.SpringBootCloudZuulApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
