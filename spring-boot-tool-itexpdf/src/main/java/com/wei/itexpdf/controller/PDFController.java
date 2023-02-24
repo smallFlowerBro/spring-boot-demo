@@ -2,10 +2,7 @@ package com.wei.itexpdf.controller;
 
 import com.wei.itexpdf.common.Response;
 import com.wei.itexpdf.util.HtmlToPDF;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -21,7 +18,7 @@ public class PDFController {
      * html 生成pdf 接口
      * @return
      */
-    @RequestMapping(value = "/htmlToPDF",method = RequestMethod.POST)
+    @PostMapping(value = "/htmlToPDF")
     public Map htmlToPDF(@RequestParam(value = "htmlMsg") String html){
         HtmlToPDF htmlToPDF= new HtmlToPDF();
         htmlToPDF.creatPDF(html);

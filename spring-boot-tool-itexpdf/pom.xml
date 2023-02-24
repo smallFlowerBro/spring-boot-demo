@@ -3,41 +3,21 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.wei</groupId>
-    <artifactId>spring-boot-itexpdf</artifactId>
+    <artifactId>spring-boot-tool-itexpdf</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>spring-boot-itexpdf</name>
+    <name>spring-boot-tool-itexpdf</name>
     <description>Demo project for Spring Boot</description>
-
-    <properties>
-        <java.version>1.8</java.version>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <spring-boot.version>2.3.7.RELEASE</spring-boot.version>
-    </properties>
+    <parent>
+        <artifactId>spring-boot</artifactId>
+        <groupId>com.wei</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>com.itextpdf.tool</groupId>
             <artifactId>xmlworker</artifactId>
-        </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.glassfish.jaxb</groupId>-->
-<!--            <artifactId>txw2</artifactId>-->
-<!--        </dependency>-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -47,13 +27,6 @@
 
     <dependencyManagement>
         <dependencies>
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-dependencies</artifactId>
-                <version>${spring-boot.version}</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
             <!-- itext 库 -->
             <dependency>
                 <groupId>com.itextpdf</groupId>

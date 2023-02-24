@@ -29,7 +29,7 @@ public class HtmlToPDF extends  PDFBuilder {
         String html=  reEscapeHtml(msg);
         String fileName = this.createFileName();
         Document in_doc= null;
-        File file  =  new File("E:"+File.separator+fileName+".pdf");
+        File file  =  new File(fileName+".pdf");
         //声明字体
         MyFontProvider myFontProvider =new MyFontProvider();
         try {
@@ -109,13 +109,13 @@ public class HtmlToPDF extends  PDFBuilder {
      */
     private void addMark(String srcFile,String text,int textWidth, int textHeight){
         try {
-            String targetFile= "E:"+File.separator+srcFile+"_mark.pdf";
+            String targetFile= srcFile+"_mark.pdf";
             File  file  =new File(targetFile);
             if(!file.exists()){
                 file.createNewFile();
             }
             //添加水印得的文件
-            PdfReader reader = new PdfReader("E:"+File.separator+srcFile+".pdf");
+            PdfReader reader = new PdfReader(srcFile+".pdf");
             //加完水印的文件
             PdfStamper pdfStamper = new PdfStamper(reader,new FileOutputStream(targetFile));
             // 设置字体

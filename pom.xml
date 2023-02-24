@@ -34,6 +34,8 @@
         <module>spring-boot-document-swagger</module>
         <!--接口文档 knife4j -->
         <module>spring-boot-document-knife4j</module>
+        <!--工具 itexpdf 处理pdf-->
+        <module>spring-boot-tool-itexpdf</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
