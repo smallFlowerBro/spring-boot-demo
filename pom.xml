@@ -40,6 +40,8 @@
         <module>spring-boot-tool-socketio</module>
         <!--动态bean-->
         <module>spring-boot-dynamic-bean</module>
+        <!--data redis -->
+        <module>spring-boot-data-redis</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
@@ -50,6 +52,7 @@
         <freemarker.version>2.3.32</freemarker.version>
         <swagger.version>2.9.2</swagger.version>
         <socketio.version>1.7.17</socketio.version>
+        <redis.client.version>4.3.1</redis.client.version>
     </properties>
 
     <dependencies>

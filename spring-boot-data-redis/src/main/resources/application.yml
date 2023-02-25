@@ -1,23 +1,23 @@
+server:
+  port: 8080
 # 应用名称
 spring:
   application:
-    name:spring-boot-redis
-  redis:
-    database: 0
-    port: 6379
-    host: 127.0.0.1
-    password:
-    jedis:
-      pool:
-        #最大连接数量
-        max-active: 8
-        #最大空闲连接数量
-        max-idle: 8
-        #最小空闲连接数量
-        min-idle: 0
-        #超时时间 默认值为-1 永不超时
-        max-wait: -1
-
-
-
+    name:spring-boot-demo
+  data:
+    redis:
+      database: 0
+      port: 6379
+      host: 127.0.0.1
+      password:
+      jedis:
+        pool:
+          # 最大连接数量
+          max-active: 8
+          # 最小空间连接数量
+          max-idle: 8
+          # 最小空间连接数
+          min-idle: 0
+          # 超时时间 默认值-1 永不超时
+          max-wait: -1
 
