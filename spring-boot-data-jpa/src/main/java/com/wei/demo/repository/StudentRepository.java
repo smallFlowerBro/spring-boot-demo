@@ -1,6 +1,6 @@
-package com.wei.jpa.repository;
+package com.wei.demo.repository;
 
-import com.wei.jpa.entity.StudentEntity;
+import com.wei.demo.entity.StudentEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

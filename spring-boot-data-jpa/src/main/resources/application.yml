@@ -1,6 +1,6 @@
 spring:
   application:
-    name: spring-boot-orm-jpa
+    name: spring-boot-orm-demo
   #数据源配置
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/myapp?serverTimezone=GMT
@@ -14,7 +14,4 @@ spring:
     generate-ddl: true
     hibernate:
       ddl-auto: update
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL57InnoDBDialect
     open-in-view: true

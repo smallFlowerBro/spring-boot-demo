@@ -1,7 +1,7 @@
-package com.wei.jpa;
+package com.wei.demo;
 
-import com.wei.jpa.entity.StudentEntity;
-import com.wei.jpa.repository.StudentRepository;
+import com.wei.demo.entity.StudentEntity;
+import com.wei.demo.repository.StudentRepository;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

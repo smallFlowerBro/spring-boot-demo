@@ -42,6 +42,8 @@
         <module>spring-boot-dynamic-bean</module>
         <!--data redis -->
         <module>spring-boot-data-redis</module>
+        <!--data demo-->
+        <module>spring-boot-data-jpa</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
