@@ -46,6 +46,8 @@
         <module>spring-boot-data-jpa</module>
         <!--data demo-->
         <module>spring-boot-data-mybatis</module>
+        <!--data mongodb-->
+        <module>spring-boot-data-mongodb</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>

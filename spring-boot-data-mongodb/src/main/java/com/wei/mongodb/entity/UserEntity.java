@@ -33,4 +33,9 @@ public class UserEntity implements Serializable {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    @Override
+    public String toString() {
+        return "{\"id\":\""+this.id+"\",\"userName\":\""+this.userName+"\"}";
+    }
 }
