@@ -1,7 +1,7 @@
-package com.wei.mybatis;
+package com.wei.demo;
 
-import com.wei.mybatis.entity.StudentEntity;
-import com.wei.mybatis.service.StudentService;
+import com.wei.demo.entity.StudentEntity;
+import com.wei.demo.service.StudentService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,6 +1,6 @@
-package com.wei.mybatis.mapper;
+package com.wei.demo.mapper;
 
-import com.wei.mybatis.entity.StudentEntity;
+import com.wei.demo.entity.StudentEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 
@@ -11,6 +11,7 @@ import java.util.List;
  * @Description //TODO
  * @Date
  */
+
 @Mapper
 public interface StudentMapper {
 

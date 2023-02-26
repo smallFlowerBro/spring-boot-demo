@@ -1,13 +1,12 @@
 # 应用名称
 spring:
   application:
-    name: spring-boot-orm-mybatis
-
+    name: spring-boot-data-demo
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/myapp?serverTimezone=GMT
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
 mybatis:
-  mapper-locations: classpath:mapping/*Mapper.xml
-  type-handlers-package: com.wei.mybatis.entity
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-handlers-package: com.wei.demo.entity

@@ -1,7 +1,7 @@
-package com.wei.mybatis.service;
+package com.wei.demo.service;
 
-import com.wei.mybatis.entity.StudentEntity;
-import com.wei.mybatis.mapper.StudentMapper;
+import com.wei.demo.entity.StudentEntity;
+import com.wei.demo.mapper.StudentMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

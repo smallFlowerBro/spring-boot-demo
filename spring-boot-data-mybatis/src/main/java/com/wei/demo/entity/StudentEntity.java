@@ -1,4 +1,4 @@
-package com.wei.mybatis.entity;
+package com.wei.demo.entity;
 
 import lombok.Data;
 
