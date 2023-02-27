@@ -1,11 +1,10 @@
-package com.wei.log4j2;
+package com.wei.demo;
 
 
 
 
 import lombok.extern.log4j.Log4j2;
 import org.junit.jupiter.api.Test;
-import org.slf4j.MDC;
 
 import org.springframework.boot.test.context.SpringBootTest;
 

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
+<configuration>
+    <properties>
+        <!-- 文件输出格式 -->
+        <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %C{1}(%L) - %msg%n</property>
+        <!-- 日志输出路径 -->
+        <property name="logdir">log/</property>
+    </properties>
+    <appenders>
+        <Console name="CONSOLE" target="system_out">
+            <PatternLayout pattern="${PATTERN}" />
+        </Console>
+        <!-- 这个会打印出所有的级别的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档-->
+        <RollingFile name="RollingFileAll" fileName="${logdir}/all.log"
+                     filePattern="${logdir}/$${date:yyyy-MM}/all-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${PATTERN}"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="50M"/>
+            </Policies>
+        </RollingFile>
+        <!-- 这个会打印出Error级别的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档-->
+        <RollingFile name="RollingFileError"
+                     fileName="${logdir}/error.log"
+                     filePattern="${logdir}/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log">
+            <PatternLayout pattern="${PATTERN}"/>
+            <Filters>
+                <!--onMatch：DENY/ACCEPT 禁止或者接受（是否接受匹配）-->
+                <!--onMismatch：DENY/NEUTRAL （是否接受其他高于他的级别）-->
+                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
+            </Filters>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1"/>
+                <SizeBasedTriggeringPolicy size="100M"/>
+            </Policies>
+        </RollingFile>
+    </appenders>
+
+    <loggers>
+        <!--需要更低级别的输出在这里配置包名-->
+        <logger name="com.mypro" level="debug"></logger>
+        <!--这里设置info,屏蔽其他框架无用的DEBUG信息-->
+        <root level="info">
+            <appenderref ref="CONSOLE" />
+            <appender-ref ref="RollingFileAll"/>
+            <appender-ref ref="RollingFileError"/>
+        </root>
+    </loggers>
+</configuration>

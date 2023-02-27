@@ -52,6 +52,8 @@
         <module>spring-boot-data-neo4j</module>
         <!--定时任务-->
         <module>spring-boot-schedule</module>
+        <!--日志 demo-->
+        <module>spring-boot-log-log4j2</module>
 
     </modules>
     <name>spring-boot</name>
