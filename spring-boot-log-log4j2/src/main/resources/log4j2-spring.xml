@@ -3,16 +3,17 @@
 <configuration>
     <properties>
         <!-- 文件输出格式 -->
-        <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] [%t] %C{1}(%L) - %msg%n</property>
+        <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS}[%X{deviceNo}] [%-5level]  [%t] %C{1}(%L) - %msg%n</property>
         <!-- 日志输出路径 -->
         <property name="logdir">log/</property>
+        <property name="deviceNo">%X{deviceNo}</property>
     </properties>
     <appenders>
         <Console name="CONSOLE" target="system_out">
             <PatternLayout pattern="${PATTERN}" />
         </Console>
         <!-- 这个会打印出所有的级别的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档-->
-        <RollingFile name="RollingFileAll" fileName="${logdir}/all.log"
+            <RollingFile  name="RollingFileAll"
                      filePattern="${logdir}/$${date:yyyy-MM}/all-%d{yyyy-MM-dd}-%i.log">
             <PatternLayout pattern="${PATTERN}"/>
             <Policies>
@@ -44,6 +45,9 @@
         <root level="info">
             <appenderref ref="CONSOLE" />
             <appender-ref ref="RollingFileAll"/>
+        </root>
+        <root level="error">
+            <appenderref ref="CONSOLE" />
             <appender-ref ref="RollingFileError"/>
         </root>
     </loggers>
