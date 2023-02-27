@@ -1,9 +1,8 @@
-package com.wei.schedule.task;
+package com.wei.demo.task;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
-
 /**
  * @Author weiyongjian
  * @Description 的静态定时任务

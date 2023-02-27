@@ -48,6 +48,11 @@
         <module>spring-boot-data-mybatis</module>
         <!--data mongodb-->
         <module>spring-boot-data-mongodb</module>
+        <!--data 图数据库neo4j-->
+        <module>spring-boot-data-neo4j</module>
+        <!--定时任务-->
+        <module>spring-boot-schedule</module>
+
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
