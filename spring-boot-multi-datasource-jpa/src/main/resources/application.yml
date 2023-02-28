@@ -1,7 +1,7 @@
 # 应用名称
 spring:
   application:
-    name: spring-boot-nulti-datasource-jpa
+    name: spring-boot-nulti-datasource-demo
   datasource:
     #主数据源配置
     primary:
@@ -22,19 +22,13 @@ spring:
       generate-ddl: true
       hibernate:
         ddl-auto: update
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.MySQL57InnoDBDialect
-      open-in-view: true
+      open-in-view: false
     second:
       database: mysql
       show-sql: false
       generate-ddl: true
       hibernate:
         ddl-auto: update
-      properties:
-        hibernate:
-          dialect: org.hibernate.dialect.MySQL57InnoDBDialect
-      open-in-view: true
+      open-in-view: false
 
 

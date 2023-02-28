@@ -50,6 +50,8 @@
         <module>spring-boot-data-mongodb</module>
         <!--data 图数据库neo4j-->
         <module>spring-boot-data-neo4j</module>
+        <!--多数据源 jpa-->
+        <module>spring-boot-multi-datasource-jpa</module>
         <!--定时任务-->
         <module>spring-boot-schedule</module>
         <!--日志 demo-->
