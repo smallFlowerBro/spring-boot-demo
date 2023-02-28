@@ -1,9 +1,9 @@
-package com.wei.multidatasource;
+package com.wei.demo;
 
-import com.wei.multidatasource.primary.entity.PrimaryTestEntity;
-import com.wei.multidatasource.primary.service.PrimaryTestService;
-import com.wei.multidatasource.second.entity.SecondTestEntity;
-import com.wei.multidatasource.second.service.SecondTestService;
+import com.wei.demo.primary.entity.PrimaryTestEntity;
+import com.wei.demo.primary.service.PrimaryTestService;
+import com.wei.demo.second.entity.SecondTestEntity;
+import com.wei.demo.second.service.SecondTestService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

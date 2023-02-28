@@ -1,10 +1,7 @@
-package com.wei.multidatasource.second.service;
+package com.wei.demo.second.service;
 
-import com.wei.multidatasource.primary.entity.PrimaryTestEntity;
-import com.wei.multidatasource.primary.mapper.PrimaryTestMapper;
-
-import com.wei.multidatasource.second.entity.SecondTestEntity;
-import com.wei.multidatasource.second.mapper.SecondTestMapper;
+import com.wei.demo.second.entity.SecondTestEntity;
+import com.wei.demo.second.mapper.SecondTestMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

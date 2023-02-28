@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.wei.multidatasource.primary.mapper.PrimaryTestMapper">
-    <resultMap id="BaseResultMap" type="com.wei.multidatasource.primary.entity.PrimaryTestEntity">
+<mapper namespace="com.wei.demo.primary.mapper.PrimaryTestMapper">
+    <resultMap id="BaseResultMap" type="com.wei.demo.primary.entity.PrimaryTestEntity">
         <result column="id" javaType="String" property="id"></result>
         <result column="name" javaType="String" property="name"></result>
     </resultMap>
-    <select id="findAll" resultType="com.wei.multidatasource.primary.entity.PrimaryTestEntity">
+    <select id="findAll" resultType="com.wei.demo.primary.entity.PrimaryTestEntity">
         select * from  test;
     </select>
 

@@ -1,4 +1,4 @@
-package com.wei.multidatasource.config;
+package com.wei.demo.config;
 
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceProperties;
@@ -15,21 +15,26 @@ import javax.sql.DataSource;
  * @Date
  */
 @Configuration
-public class SecondDataSourceConfig {
+public class PrimaryDataSourceConfig {
+
     /**
      * @return  获取主数据源配置
      */
-
-    @Bean("secondDataSourceProperties")
-    @ConfigurationProperties(prefix = "spring.datasource.second")
+    @Primary
+    @Bean("primaryDataSourceProperties")
+    @ConfigurationProperties(prefix = "spring.datasource.primary")
     public DataSourceProperties dataSourceProperties(){return new DataSourceProperties();}
 
     /**
      * @param dataSourceProperties
-     * @return 获取第二数据源
+     * @return 获取主数据源
      */
-    @Bean("secondDataSource")
-    public DataSource dataSource(@Qualifier("secondDataSourceProperties") DataSourceProperties dataSourceProperties){
+    @Primary
+    @Bean("primaryDataSource")
+    public  DataSource dataSource(@Qualifier("primaryDataSourceProperties") DataSourceProperties dataSourceProperties){
         return dataSourceProperties.initializeDataSourceBuilder().build();
     }
+
+
+
 }

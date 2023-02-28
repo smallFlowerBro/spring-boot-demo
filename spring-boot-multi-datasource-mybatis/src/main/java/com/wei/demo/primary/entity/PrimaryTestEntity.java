@@ -1,4 +1,4 @@
-package com.wei.multidatasource.primary.entity;
+package com.wei.demo.primary.entity;
 
 import lombok.Data;
 

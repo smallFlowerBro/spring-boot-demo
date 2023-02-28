@@ -1,4 +1,4 @@
-package com.wei.multidatasource;
+package com.wei.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

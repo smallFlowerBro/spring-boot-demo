@@ -1,7 +1,6 @@
-package com.wei.multidatasource.second.mapper;
+package com.wei.demo.second.mapper;
 
-import com.wei.multidatasource.primary.entity.PrimaryTestEntity;
-import com.wei.multidatasource.second.entity.SecondTestEntity;
+import com.wei.demo.second.entity.SecondTestEntity;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

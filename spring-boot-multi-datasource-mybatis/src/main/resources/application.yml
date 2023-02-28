@@ -1,7 +1,7 @@
 # 应用名称
 spring:
   application:
-    name: spring-boot-multi-datasource-mybatis
+    name: spring-boot-multi-datasource-demo
   datasource:
     primary:
       driver-class-name: com.mysql.jdbc.Driver
@@ -20,4 +20,4 @@ mybatis:
     type-handlers-package: "com.wei.multidatatsource.primary.entity"
   second:
     mapper-locations: classpath:mapper-second/*Mapper.xml
-    type-handlers-package:  "com.wei.multidatasource.second.entity"
+    type-handlers-package:  "com.wei.demo.second.entity"
