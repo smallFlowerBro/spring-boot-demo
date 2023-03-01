@@ -1,11 +1,10 @@
-package com.wei.email;
+package com.wei.demo;
 
+import jakarta.mail.MessagingException;
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.mail.javamail.MimeMessageHelper;
-import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.stereotype.Component;
 
-import javax.mail.MessagingException;
-import javax.mail.internet.MimeMessage;
 import java.io.File;
 import java.util.List;
 
@@ -45,7 +44,7 @@ public class MimeSender extends  BaseSender {
             }
             mailSender.send(mimeMessage);
             return true;
-        }catch (MessagingException e){
+        }catch ( MessagingException e){
             return false;
         }
     }

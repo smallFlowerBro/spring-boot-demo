@@ -1,14 +1,13 @@
-package com.wei.email.controller;
+package com.wei.demo.controller;
 
-import com.wei.email.MimeSender;
-import com.wei.email.TextSender;
+import com.wei.demo.MimeSender;
+import com.wei.demo.TextSender;
+import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.server.Http2;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.*;
 import java.util.ArrayList;
 

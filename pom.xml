@@ -38,6 +38,8 @@
         <module>spring-boot-tool-itexpdf</module>
         <!--工具  socketio-->
         <module>spring-boot-tool-socketio</module>
+        <!--工具 email-->
+        <module>spring-boot-tool-email</module>
         <!--动态bean-->
         <module>spring-boot-dynamic-bean</module>
         <!--data redis -->
@@ -97,6 +99,11 @@
 
     <dependencyManagement>
         <dependencies>
+            <dependency>
+                <groupId>com.wei</groupId>
+                <artifactId>spring-boot-freemarker</artifactId>
+                <version>0.0.1-SNAPSHOT</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

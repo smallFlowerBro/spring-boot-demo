@@ -1,6 +1,6 @@
-package com.wei.email;
+package com.wei.demo;
 
-import com.wei.email.config.EmailConfig;
+import com.wei.demo.config.EmailConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 

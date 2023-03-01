@@ -1,4 +1,4 @@
-package com.wei.email;
+package com.wei.demo;
 
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Component;
