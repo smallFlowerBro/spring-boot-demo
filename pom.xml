@@ -64,7 +64,8 @@
         <module>spring-boot-log-log4j2</module>
         <!--netty 服务-->
         <module>spring-boot-netty</module>
-
+        <!--safe security-->
+        <module>spring-boot-safe-security</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
