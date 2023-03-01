@@ -42,6 +42,8 @@
         <module>spring-boot-tool-email</module>
         <!--工具 文件上传下载-->
         <module>spring-boot-tool-uploader</module>
+        <!--工具 demo -->
+        <module>spring-boot-tool-shell</module>
         <!--动态bean-->
         <module>spring-boot-dynamic-bean</module>
         <!--data redis -->
@@ -79,6 +81,7 @@
         <redis.client.version>4.3.1</redis.client.version>
         <mybatis.version>3.0.1</mybatis.version>
         <netty.version>4.1.36.Final</netty.version>
+        <spring-shell.version>3.0.1</spring-shell.version>
     </properties>
 
     <dependencies>

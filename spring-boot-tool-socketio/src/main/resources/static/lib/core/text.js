@@ -242,7 +242,7 @@ define(['module'], function (module) {
             //to avoid any potential issues with ! in file names.
             text.load(nonStripName, req, function (value) {
                 //Use own write() method to construct full module value.
-                //But need to create shell that translates writeFile's
+                //But need to create demo that translates writeFile's
                 //write() to the right interface.
                 var textWrite = function (contents) {
                     return write(fileName, contents);
@@ -261,7 +261,7 @@ define(['module'], function (module) {
             process.versions &&
             !!process.versions.node &&
             !process.versions['entity-webkit'] &&
-            !process.versions['atom-shell'])) {
+            !process.versions['atom-demo'])) {
         //Using special require.nodeRequire, something added by r.js.
         fs = require.nodeRequire('fs');
 

@@ -1,4 +1,4 @@
-package com.wei.shell.command;
+package com.wei.demo.command;
 
 import org.springframework.shell.standard.ShellComponent;
 import org.springframework.shell.standard.ShellMethod;
