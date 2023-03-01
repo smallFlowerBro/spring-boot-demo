@@ -40,6 +40,8 @@
         <module>spring-boot-tool-socketio</module>
         <!--工具 email-->
         <module>spring-boot-tool-email</module>
+        <!--工具 文件上传下载-->
+        <module>spring-boot-tool-uploader</module>
         <!--动态bean-->
         <module>spring-boot-dynamic-bean</module>
         <!--data redis -->
