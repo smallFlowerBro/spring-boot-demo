@@ -1,4 +1,7 @@
-# webservice 服务
+# demo 服务
 spring:
   application:
     name: spring-boot-web-service
+ws:
+  host: 127.0.0.1
+  port: 8889

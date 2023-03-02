@@ -1,4 +1,4 @@
-package com.wei.webservice;
+package com.wei.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
