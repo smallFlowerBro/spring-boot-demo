@@ -44,6 +44,8 @@
         <module>spring-boot-tool-uploader</module>
         <!--工具 demo -->
         <module>spring-boot-tool-shell</module>
+        <!--jna  调用动态库库   -->
+        <module>spring-boot-jna</module>
         <!--动态bean-->
         <module>spring-boot-dynamic-bean</module>
         <!--data redis -->
@@ -82,6 +84,7 @@
         <mybatis.version>3.0.1</mybatis.version>
         <netty.version>4.1.36.Final</netty.version>
         <spring-shell.version>3.0.1</spring-shell.version>
+        <jna.version>5.13.0</jna.version>
     </properties>
 
     <dependencies>
