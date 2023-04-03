@@ -42,8 +42,10 @@
         <module>spring-boot-tool-email</module>
         <!--工具 文件上传下载-->
         <module>spring-boot-tool-uploader</module>
-        <!--工具 demo -->
+        <!--工具 shell -->
         <module>spring-boot-tool-shell</module>
+        <!--工具 office 文件 -->
+        <module>spring-boot-tool-office</module>
         <!--jna  调用动态库库   -->
         <module>spring-boot-jna</module>
         <!--动态bean-->
@@ -70,6 +72,8 @@
         <module>spring-boot-netty</module>
         <!--safe security-->
         <module>spring-boot-safe-security</module>
+        <!--云服务  注册中心        -->
+        <module>spring-boot-cloud-eureka</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>
@@ -85,6 +89,7 @@
         <netty.version>4.1.36.Final</netty.version>
         <spring-shell.version>3.0.1</spring-shell.version>
         <jna.version>5.13.0</jna.version>
+        <eureka.version>4.0.0</eureka.version>
     </properties>
 
     <dependencies>
