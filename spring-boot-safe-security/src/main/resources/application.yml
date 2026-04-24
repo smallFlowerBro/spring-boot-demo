@@ -1,8 +1,16 @@
 server:
   port: 8805
-
 spring:
   application:
     name: spring-boot-security
-
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/demo_security?serverTimezone=GMT
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect   #指定sql方言
+    hibernate:
+      ddl-auto: update # 开发环境自动建表，生产环境请勿使用
+    show-sql: true # 显示sql语句
 

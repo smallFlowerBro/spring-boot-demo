@@ -23,7 +23,9 @@ public class DemoController {
     private String hello(@RequestParam String deviceNo){
 
 //        MDC.put("deviceNo",deviceNo);
-        ThreadContext.put("deviceNo",deviceNo);
+        System.out.println(deviceNo);
+        ThreadContext.put("deviceId",deviceNo);
+        System.out.println(ThreadContext.get("deviceId"));
         log.info("进入hello");
         return "hello";
     }

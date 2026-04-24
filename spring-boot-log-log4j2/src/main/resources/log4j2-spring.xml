@@ -1,54 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--日志级别以及优先级排序: OFF > FATAL > ERROR > WARN > INFO > DEBUG > TRACE > ALL -->
-<configuration>
-    <properties>
-        <!-- 文件输出格式 -->
-        <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS}[%X{deviceNo}] [%-5level]  [%t] %C{1}(%L) - %msg%n</property>
-        <!-- 日志输出路径 -->
-        <property name="logdir">log/</property>
-        <property name="deviceNo">%X{deviceNo}</property>
-    </properties>
-    <appenders>
-        <Console name="CONSOLE" target="system_out">
-            <PatternLayout pattern="${PATTERN}" />
-        </Console>
-        <!-- 这个会打印出所有的级别的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档-->
-            <RollingFile  name="RollingFileAll"
-                     filePattern="${logdir}/$${date:yyyy-MM}/all-%d{yyyy-MM-dd}-%i.log">
-            <PatternLayout pattern="${PATTERN}"/>
-            <Policies>
-                <TimeBasedTriggeringPolicy interval="1"/>
-                <SizeBasedTriggeringPolicy size="50M"/>
-            </Policies>
-        </RollingFile>
-        <!-- 这个会打印出Error级别的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档-->
-        <RollingFile name="RollingFileError"
-                     fileName="${logdir}/error.log"
-                     filePattern="${logdir}/$${date:yyyy-MM}/error-%d{yyyy-MM-dd}-%i.log">
-            <PatternLayout pattern="${PATTERN}"/>
-            <Filters>
-                <!--onMatch：DENY/ACCEPT 禁止或者接受（是否接受匹配）-->
-                <!--onMismatch：DENY/NEUTRAL （是否接受其他高于他的级别）-->
-                <ThresholdFilter level="ERROR" onMatch="ACCEPT" onMismatch="DENY"/>
-            </Filters>
-            <Policies>
-                <TimeBasedTriggeringPolicy interval="1"/>
-                <SizeBasedTriggeringPolicy size="100M"/>
-            </Policies>
-        </RollingFile>
-    </appenders>
+<Configuration status="WARN" packages="">
+    <Properties>
+        <Property name="LOG_PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n</Property>
+        <Property name="LOG_HOME">logs</Property>
+    </Properties>
 
-    <loggers>
-        <!--需要更低级别的输出在这里配置包名-->
-        <logger name="com.mypro" level="debug"></logger>
-        <!--这里设置info,屏蔽其他框架无用的DEBUG信息-->
-        <root level="info">
-            <appenderref ref="CONSOLE" />
-            <appender-ref ref="RollingFileAll"/>
-        </root>
-        <root level="error">
-            <appenderref ref="CONSOLE" />
-            <appender-ref ref="RollingFileError"/>
-        </root>
-    </loggers>
-</configuration>
+    <Appenders>
+        <!-- 定义 RoutingAppender -->
+        <Routing name="DeviceRoutingAppender">
+            <Routes pattern="${ctx:deviceId}"> <!-- ctx: 表示从 ThreadContext (MDC) 中获取 deviceId -->
+                <!-- 默认路由 -->
+                <Route key="unknown">
+                    <RollingFile name="UnknownDeviceFile"
+                                 fileName="${LOG_HOME}/device_unknown.log"
+                                 filePattern="${LOG_HOME}/device_unknown-%d{yyyy-MM-dd}-%i.log.gz">
+                        <PatternLayout pattern="${LOG_PATTERN}"/>
+                        <Policies>
+                            <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                            <SizeBasedTriggeringPolicy size="100 MB"/>
+                        </Policies>
+                    </RollingFile>
+                </Route>
+                <!-- 动态路由模板 -->
+                <!-- 注意：这里没有写死具体的设备号，而是使用 ${ctx:deviceId} 作为占位符 -->
+                <Route>
+                    <RollingFile name="DeviceFile-${ctx:deviceId}"
+                                 fileName="${LOG_HOME}/device_${ctx:deviceId}.log"
+                                 filePattern="${LOG_HOME}/device_${ctx:deviceId}/device_${ctx:deviceId}-%d{yyyy-MM-dd}-%i.log.gz">
+                        <PatternLayout pattern="${LOG_PATTERN}"/>
+                        <Policies>
+                            <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                            <SizeBasedTriggeringPolicy size="100 MB"/>
+                        </Policies>
+                    </RollingFile>
+                </Route>
+            </Routes>
+        </Routing>
+
+        <!-- 控制台输出，用于调试 -->
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <!-- 专门用于设备日志的 Logger -->
+        <Logger name="DeviceLogger" level="DEBUG" additivity="false">
+            <AppenderRef ref="DeviceRoutingAppender"/>
+        </Logger>
+
+        <Root level="INFO">
+            <AppenderRef ref="DeviceRoutingAppender"/>
+            <AppenderRef ref="Console"/>
+        </Root>
+    </Loggers>
+</Configuration>

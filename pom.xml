@@ -74,6 +74,9 @@
         <module>spring-boot-safe-security</module>
         <!--云服务  注册中心        -->
         <module>spring-boot-cloud-eureka</module>
+        <!-- springboot 原理学习        -->
+        <module>spring-boot-principle</module>
+        <module>spring-boot-spire-doc</module>
     </modules>
     <name>spring-boot</name>
     <description>Demo project for Spring Boot</description>

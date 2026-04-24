@@ -1,0 +1,39 @@
+#应用名称
+spring:
+  application:
+    name: spring-boot-sso-idb
+  #数据库
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/single_sigh_on?serverTimezone=GMT
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+  jpa:
+    database: mysql
+    show-sql: false
+    generate-ddl: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL57InnoDBDialect
+    open-in-view: true
+  redis:
+    database: 0
+    port: 6379
+    host: 127.0.0.1
+    password:
+    jedis:
+      pool:
+        #最大连接数量
+        max-active: 8
+        #最大空闲连接数量
+        max-idle: 8
+        #最小空闲连接数量
+        min-idle: 0
+        #超时时间 默认值为-1 永不超时
+        max-wait: -1
+
+# 服务端口
+server:
+  port: 8079

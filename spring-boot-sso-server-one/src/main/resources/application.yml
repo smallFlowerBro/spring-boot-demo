@@ -1,0 +1,9 @@
+#应用名称
+spring:
+  application:
+    name: spring-boot-sso-idb
+# 服务端口
+server:
+  port: 8080
+trade:
+  sso_url:  http://127.0.0.1:8079/idb/

@@ -1,5 +1,6 @@
 package com.wei.demo.config;
 
+import com.wei.demo.service.CustomUserDetailService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.Order;
@@ -8,6 +9,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
@@ -20,35 +23,48 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class WebSecurityConfig  {
 
+
     @Bean
-    public UserDetailsService userDetailsService() throws Exception {
-        // ensure the passwords are encoded properly
-        User.UserBuilder users = User.withDefaultPasswordEncoder();
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(users.username("user").password("password").roles("USER").build());
-        manager.createUser(users.username("admin").password("password").roles("USER","ADMIN").build());
-        return manager;
+    public PasswordEncoder passwordEncoder(){
+        // 推荐使用 BCrypt 对密码进行加密存储
+        return new BCryptPasswordEncoder();
     }
 
     @Bean
-    @Order(1)
     public SecurityFilterChain apiFilterChain(HttpSecurity http) throws Exception {
         http
-                .securityMatcher("/api/**")
-                .authorizeHttpRequests(authorize -> authorize
-                        .anyRequest().hasRole("ADMIN")
+                .authorizeHttpRequests(authz -> authz
+                        .requestMatchers("/","/favicon.ico").permitAll() // 首页公开访问
+                        .requestMatchers("/login").permitAll() // 登录页公开访问
+                        .requestMatchers("/css/**", "/js/**", "/images/**").permitAll() // 静态资源公开访问
+                        .anyRequest().authenticated() // 其他所有请求都需要认证
                 )
-                .httpBasic(Customizer.withDefaults());
+                .formLogin(form -> form
+                        .loginPage("/login") // 自定义登录页面URL
+                        .defaultSuccessUrl("/dashboard", true) // 登录成功后默认跳转的页面
+                        .failureUrl("/login?error=true") // 登录失败后跳转的URL
+                        .usernameParameter("username") // 登录表单中用户名字段的name属性
+                        .passwordParameter("password") // 登录表单中密码字段的name属性
+                        .permitAll() // 允许所有人访问登录页面和登录功能
+                )
+                .logout(logout -> logout
+                        .logoutUrl("/perform_logout") // 自定义登出URL
+                        .logoutSuccessUrl("/") // 登出成功后跳转的页面
+                        .invalidateHttpSession(true) // 登出时使Session失效
+                        .clearAuthentication(true) // 清除认证信息
+                        .permitAll()
+                )
+                .rememberMe(remember -> remember
+                        .key("uniqueAndSecret") // 用于生成Remember-Me Cookie的密钥
+                        .tokenValiditySeconds(86400) // Remember-Me token的有效期（秒），这里是24小时
+                        .userDetailsService(userDetailsService()) // 必须注入UserDetailsService
+                );
+
         return http.build();
     }
 
-    @Bean
-    public SecurityFilterChain formLoginFilterChain(HttpSecurity http) throws Exception {
-        http
-                .authorizeHttpRequests(authorize -> authorize
-                        .anyRequest().authenticated()
-                )
-                .formLogin(Customizer.withDefaults());
-        return http.build();
+
+    public UserDetailsService userDetailsService(){
+        return new CustomUserDetailService();
     }
 }
