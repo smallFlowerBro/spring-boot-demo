@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="zh-CN" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>仪表盘</title>
+</head>
+<body>
+    <h1>欢迎, <span sec:authentication="name"></span>!</h1>
+    <p>您已成功登录。</p>
+
+    <form th:action="@{/perform_logout}" method="post">
+        <button type="submit">登出</button>
+    </form>
+</body>
+</html>
